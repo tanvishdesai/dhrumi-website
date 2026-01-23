@@ -1,26 +1,494 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================
+   CUSTOM FONTS
+   ============================================ */
+
+@font-face {
+  font-family: "Brachial";
+  src: url("/fonts/Brachial-UltraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: "Brachial Wide";
+  src: url("/fonts/Brachial-UltraBold-UltraWide.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Machina";
+  src: url("/fonts/PPNeueMachina-PlainVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   CSS VARIABLES - THEME SYSTEM
+   ============================================ */
+
+:root {
+  /* Light Mode Colors */
+  --background: oklch(100% 0 0);
+  --foreground: oklch(14.5% 0 0);
+  --primary: oklch(20.5% 0 0);
+  --primary-foreground: oklch(100% 0 0);
+  --secondary: oklch(97% 0 0);
+  --secondary-foreground: oklch(14.5% 0 0);
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(14.5% 0 0);
+  --muted: oklch(97% 0 0);
+  --muted-foreground: oklch(55.6% 0 0);
+  --accent: oklch(97% 0 0);
+  --accent-foreground: oklch(14.5% 0 0);
+  --border: oklch(92.2% 0 0);
+  --input: oklch(92.2% 0 0);
+  --ring: oklch(14.5% 0 0);
+  --radius: 0.625rem;
+  
+  /* Grid colors */
+  --grid-color: rgba(0, 0, 0, 0.15);
+  
+  /* Scrollbar */
+  --scrollbar-width: 8px;
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: oklch(70% 0 0);
+  --scrollbar-radius: 4px;
+}
+
+.dark {
+  /* Dark Mode Colors */
+  --background: oklch(0% 0 0);
+  --foreground: oklch(98% 0 0);
+  --primary: oklch(98% 0 0);
+  --primary-foreground: oklch(14.5% 0 0);
+  --secondary: oklch(20.5% 0 0);
+  --secondary-foreground: oklch(98% 0 0);
+  --card: oklch(10% 0 0);
+  --card-foreground: oklch(98% 0 0);
+  --muted: oklch(20.5% 0 0);
+  --muted-foreground: oklch(70% 0 0);
+  --accent: oklch(20.5% 0 0);
+  --accent-foreground: oklch(98% 0 0);
+  --border: oklch(25% 0 0);
+  --input: oklch(25% 0 0);
+  --ring: oklch(98% 0 0);
+  
+  /* Grid colors */
+  --grid-color: rgba(255, 255, 255, 1);
+}
+
+/* ============================================
+   TAILWIND THEME INTEGRATION
+   ============================================ */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  /* Custom fonts */
+  --font-brachial: "Brachial", system-ui, sans-serif;
+  --font-brachial-wide: "Brachial Wide", system-ui, sans-serif;
+  --font-machina: "PP Neue Machina", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  font-family: "PP Neue Machina", system-ui, -apple-system, sans-serif;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+/* ============================================
+   SCROLLBAR STYLES
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: var(--scrollbar-radius);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "PP Neue Machina", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.font-brachial {
+  font-family: "Brachial", system-ui, sans-serif;
+}
+
+.font-brachial-wide {
+  font-family: "Brachial Wide", system-ui, sans-serif;
+}
+
+.font-machina {
+  font-family: "PP Neue Machina", system-ui, sans-serif;
+}
+
+/* ============================================
+   HERO NAME STYLES
+   ============================================ */
+
+.hero-name-filled {
+  font-family: "Brachial Wide", Impact, "Arial Black", sans-serif;
+  font-weight: 900;
+  color: var(--foreground);
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  font-style: italic;
+}
+
+.hero-name-outline {
+  font-family: "Brachial Wide", Impact, "Arial Black", sans-serif;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--foreground);
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  font-style: italic;
+}
+
+/* ============================================
+   SECTION HEADING STYLES
+   ============================================ */
+
+.section-heading {
+  font-family: "PP Neue Machina", system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.section-heading::before {
+  content: "══";
+  font-family: monospace;
+  font-weight: normal;
+  letter-spacing: -0.2em;
+}
+
+/* ============================================
+   ANIMATION KEYFRAMES
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes letterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* ============================================
+   ANIMATION CLASSES
+   ============================================ */
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-letter-reveal {
+  animation: letterReveal 0.5s ease-out forwards;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 30s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ============================================
+   GRID CANVAS
+   ============================================ */
+
+#grid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 10px 40px -10px rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   BLOG CAROUSEL STYLES
+   ============================================ */
+
+.carousel-container {
+  perspective: 1000px;
+  perspective-origin: center center;
+}
+
+.carousel-card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* ============================================
+   ACCORDION STYLES
+   ============================================ */
+
+.accordion-content {
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.accordion-trigger[data-state="open"] .accordion-chevron {
+  transform: rotate(180deg);
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+@media (max-width: 640px) {
+  .hero-name-filled,
+  .hero-name-outline {
+    font-size: 3rem;
+    -webkit-text-stroke-width: 1px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .hero-name-filled,
+  .hero-name-outline {
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-name-filled,
+  .hero-name-outline {
+    font-size: 7rem;
+  }
 }
