@@ -1,0 +1,181 @@
+---
+---
+
+<section class="w-full section-enterance visible max-w-7xl mx-auto px-4 py-20">
+    <div class="mb-10 text-center">
+        <h2 class="font-heading font-bold text-lg sm:text-2xl uppercase tracking-wide">
+            <b class="text-primary">S</b>tuff I've built & researched
+        </h2>
+        <p class="mt-2 text-muted-foreground text-sm">
+            Security research, infrastructure engineering, and the occasional rabbit hole.
+        </p>
+    </div>
+
+    <div class="flex flex-col gap-4 mx-auto w-full max-w-4xl">
+        <!-- Item 1 -->
+        <details class="group bg-card shadow-sm open:shadow-lg border border-border open:border-primary/50 rounded-lg overflow-hidden transition-all duration-300 accordion-item">
+            <summary class="list-none flex flex-wrap sm:grid sm:grid-cols-[1fr_auto] items-center gap-4 p-4 sm:p-6 cursor-pointer select-none outline-none [&::-webkit-details-marker]:hidden">
+                <div class="flex items-start gap-4">
+                    <div class="flex items-center justify-center w-12 h-12 rounded bg-black/5 dark:bg-white/5 text-primary shrink-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6"><path fill="currentColor" d="M17.06 13c-1.86 0-3.42 1.33-3.82 3.1c-.95-.41-1.82-.3-2.48-.01C10.35 14.31 8.79 13 6.94 13C4.77 13 3 14.79 3 17s1.77 4 3.94 4c2.06 0 3.74-1.62 3.9-3.68c.34-.24 1.23-.69 2.32.02c.18 2.05 1.84 3.66 3.9 3.66c2.17 0 3.94-1.79 3.94-4s-1.77-4-3.94-4M6.94 19.86c-1.56 0-2.81-1.28-2.81-2.86s1.26-2.86 2.81-2.86c1.56 0 2.81 1.28 2.81 2.86s-1.25 2.86-2.81 2.86m10.12 0c-1.56 0-2.81-1.28-2.81-2.86s1.25-2.86 2.81-2.86s2.82 1.28 2.82 2.86s-1.27 2.86-2.82 2.86M22 10.5H2V12h20zm-6.47-7.87c-.22-.49-.78-.75-1.31-.58L12 2.79l-2.23-.74l-.05-.01c-.53-.15-1.09.13-1.29.64L6 9h12l-2.44-6.32z"/></svg>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="flex items-center gap-3 font-heading font-bold text-base sm:text-xl uppercase tracking-wide">
+                            <span class="hidden md:block opacity-70 font-mono text-primary text-sm">01 //</span>
+                            Advanced WAF Evasion & Anti-Fingerprinting
+                        </h3>
+                        <p class="font-normal text-muted-foreground text-sm sm:text-base line-clamp-2 group-open:line-clamp-none">
+                            Reverse engineering Cloudflare Turnstile, Google reCaptcha (v2/v3/invisible), and DDoS-Guard to automate data collection in hostile environments.
+                        </p>
+                    </div>
+                </div>
+                <span class="ml-auto transform transition-transform duration-300 group-open:rotate-180 text-muted-foreground">
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6"><path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z"/></svg>
+                </span>
+            </summary>
+            <div class="px-4 sm:px-6 pb-6 pt-2">
+                <hr class="mb-4 border-border/50">
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">Automation</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">Reverse Engineering</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">WAF Evasion</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">CDP Injection</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">Captcha Bypassing</span>
+                </div>
+                <div class="space-y-4 text-muted-foreground text-sm leading-relaxed">
+                    <p><strong class="text-foreground/90">The Why:</strong> Targeted threat communities actively weaponize anti-bot technology (CAPTCHAs, Proof-of-Work) to hide their data. Standard scrapers fail here; if you can't bypass the gate, you gain no intelligence.</p>
+                    <p><strong class="text-foreground/90">The How:</strong> I moved beyond WebDriver to direct CDP (Chrome DevTools Protocol) injection for stealth automation. For reCAPTCHA, I built a standalone solver endpoint achieving 0.9+ confidence through behavioral pattern replication. The harder problem was proprietary obfuscated PoW challenges. I reverse engineered multiple cryptographic proof-of-work implementations to extract the validation logic and replicate it server-side.</p>
+                    <p><strong class="text-foreground/90">The Challenge:</strong> Bypassing the check is only step one. The real hurdle is preventing chain-bans in a distributed system. I engineered a custom Session Rotator with distributed locking (Redis/ZooKeeper) that ensures accounts are only 'checked out' by one worker at a time, preventing concurrent usage flags.</p>
+                </div>
+            </div>
+        </details>
+
+        <!-- Item 2 -->
+        <details class="group bg-card shadow-sm open:shadow-lg border border-border open:border-primary/50 rounded-lg overflow-hidden transition-all duration-300 accordion-item">
+            <summary class="list-none flex flex-wrap sm:grid sm:grid-cols-[1fr_auto] items-center gap-4 p-4 sm:p-6 cursor-pointer select-none outline-none [&::-webkit-details-marker]:hidden">
+                <div class="flex items-start gap-4">
+                    <div class="flex items-center justify-center w-12 h-12 rounded bg-black/5 dark:bg-white/5 text-primary shrink-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6"><path d="M15 9a1 1 0 0 1-1-1a1 1 0 0 1 1-1a1 1 0 0 1 1 1a1 1 0 0 1-1 1M9 9a1 1 0 0 1-1-1a1 1 0 0 1 1-1a1 1 0 0 1 1 1a1 1 0 0 1-1 1m7.12-4.63l2.1-2.1l-.82-.83l-2.31 2.31C14.16 3.28 13.11 3 12 3c-1.12 0-2.16.28-3.09.75L6.6 1.44l-.82.83l2.1 2.1C6.14 5.64 5 7.68 5 10v1h14v-1c0-2.32-1.14-4.36-2.88-5.63M5 16c0 3.86 3.13 7 7 7a7 7 0 0 0 7-7v-4H5v4z" fill="currentColor"/></svg>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="flex items-center gap-3 font-heading font-bold text-base sm:text-xl uppercase tracking-wide">
+                            <span class="hidden md:block opacity-70 font-mono text-primary text-sm">02 //</span>
+                            Automated Mobile Malware Detection Pipeline
+                        </h3>
+                        <p class="font-normal text-muted-foreground text-sm sm:text-base line-clamp-2 group-open:line-clamp-none">
+                            A high-concurrency watchdog for monitoring unauthorized application distribution across unregulated third-party stores.
+                        </p>
+                    </div>
+                </div>
+                <span class="ml-auto transform transition-transform duration-300 group-open:rotate-180 text-muted-foreground">
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6"><path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z"/></svg>
+                </span>
+            </summary>
+            <div class="px-4 sm:px-6 pb-6 pt-2">
+                <hr class="mb-4 border-border/50">
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">Malware Analysis</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">MobSF</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">APK Decompilation</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">Pattern Matching</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">FFI</span>
+                </div>
+                <div class="space-y-4 text-muted-foreground text-sm leading-relaxed">
+                    <p><strong class="text-foreground/90">The Why:</strong> When modified banking or telco apps circulate on grey markets, they bypass business logic and compromise users. We needed to detect these 'mods' the moment they were uploaded.</p>
+                    <p><strong class="text-foreground/90">The How:</strong> I built a pipeline that scrapes 30+ shadow app stores for both APK/IPA binaries and structured metadata (version history, permissions, developer info). For official Play Store data, I ported EEF's rs-google-play (a Rust-based reverse-engineered Google Play API) to Python using PyO3 and Maturin. The collected files feed into an automated SAST engine (MobSF) for binary decompilation and diff analysis against official releases.</p>
+                    <p><strong class="text-foreground/90">The Challenge:</strong> Ironically, poorly developed websites are harder to scrape than secure ones. Shadow stores often have broken HTML, non-standard DOMs, and anti-hotlinking measures. The difficulty wasn't just the scale; it was writing parsers robust enough to handle the chaos of the grey web.</p>
+                </div>
+            </div>
+        </details>
+
+        <!-- Item 3 -->
+        <details class="group bg-card shadow-sm open:shadow-lg border border-border open:border-primary/50 rounded-lg overflow-hidden transition-all duration-300 accordion-item">
+            <summary class="list-none flex flex-wrap sm:grid sm:grid-cols-[1fr_auto] items-center gap-4 p-4 sm:p-6 cursor-pointer select-none outline-none [&::-webkit-details-marker]:hidden">
+                <div class="flex items-start gap-4">
+                    <div class="flex items-center justify-center w-12 h-12 rounded bg-black/5 dark:bg-white/5 text-primary shrink-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6"><path fill="currentColor" d="m19.07 4.93l-1.41 1.41A8 8 0 0 1 20 12a8 8 0 0 1-8 8a8 8 0 0 1-8-8c0-4.08 3.05-7.44 7-7.93v2.02C8.16 6.57 6 9.03 6 12a6 6 0 0 0 6 6a6 6 0 0 0 6-6c0-1.66-.67-3.16-1.76-4.24l-1.41 1.41C15.55 9.9 16 10.9 16 12a4 4 0 0 1-4 4a4 4 0 0 1-4-4c0-1.86 1.28-3.41 3-3.86v2.14c-.6.35-1 .98-1 1.72a2 2 0 0 0 2 2a2 2 0 0 0 2-2c0-.74-.4-1.38-1-1.72V2h-1A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10c0-2.76-1.12-5.26-2.93-7.07"/></svg>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="flex items-center gap-3 font-heading font-bold text-base sm:text-xl uppercase tracking-wide">
+                            <span class="hidden md:block opacity-70 font-mono text-primary text-sm">03 //</span>
+                            Threat Intelligence Ingestion Infrastructure
+                        </h3>
+                        <p class="font-normal text-muted-foreground text-sm sm:text-base line-clamp-2 group-open:line-clamp-none">
+                            Processing terabytes of unstructured data from leak sites and dark web forums into structured, queryable intelligence.
+                        </p>
+                    </div>
+                </div>
+                <span class="ml-auto transform transition-transform duration-300 group-open:rotate-180 text-muted-foreground">
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6"><path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z"/></svg>
+                </span>
+            </summary>
+            <div class="px-4 sm:px-6 pb-6 pt-2">
+                <hr class="mb-4 border-border/50">
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">Dark Web Monitoring</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">Data Normalization</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">Protobuf</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">OSINT</span>
+                </div>
+                <div class="space-y-4 text-muted-foreground text-sm leading-relaxed">
+                    <p><strong class="text-foreground/90">The Why:</strong> Raw data from the dark web is useless if it isn't searchable. We needed a way to correlate a handle on a Russian forum with a database leak on a file-sharing site instantly.</p>
+                    <p><strong class="text-foreground/90">The How:</strong> I architected a modular ingestion engine using RabbitMQ and ZooKeeper to handle the throughput. Crucially, I enforced strict schema validation using Protocol Buffers (Protobuf). This forces unstructured forum HTML into a strict binary format, making the data immutable and typed before it hits our Data Lake.</p>
+                    <p><strong class="text-foreground/90">The Challenge:</strong> Forums built on the same underlying frameworks (XenForo, phpBB, vBulletin) share DOM structures but implement custom anti-scraping logic. I wrote modular parsers that inherit base extraction logic per platform type, reducing code duplication significantly. The real challenge is handling unreliable data: missing fields, inconsistent encodings, malformed timestamps. The system validates and normalizes on ingestion, logging failures for manual review rather than silently corrupting the dataset.</p>
+                </div>
+            </div>
+        </details>
+
+        <!-- Item 4 -->
+        <details class="group bg-card shadow-sm open:shadow-lg border border-border open:border-primary/50 rounded-lg overflow-hidden transition-all duration-300 accordion-item">
+            <summary class="list-none flex flex-wrap sm:grid sm:grid-cols-[1fr_auto] items-center gap-4 p-4 sm:p-6 cursor-pointer select-none outline-none [&::-webkit-details-marker]:hidden">
+                <div class="flex items-start gap-4">
+                    <div class="flex items-center justify-center w-12 h-12 rounded bg-black/5 dark:bg-white/5 text-primary shrink-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6"><path fill="currentColor" d="m21.71 20.29l-1.42 1.42a1 1 0 0 1-1.41 0L7 9.85A3.8 3.8 0 0 1 6 10a4 4 0 0 1-3.78-5.3l2.54 2.54l.53-.53l1.42-1.42l.53-.53L4.7 2.22A4 4 0 0 1 10 6a3.8 3.8 0 0 1-.15 1l11.86 11.88a1 1 0 0 1 0 1.41M2.29 18.88a1 1 0 0 0 0 1.41l1.42 1.42a1 1 0 0 0 1.41 0l5.47-5.46l-2.83-2.83M20 2l-4 2v2l-2.17 2.17l2 2L18 8h2l2-4Z"/></svg>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="flex items-center gap-3 font-heading font-bold text-base sm:text-xl uppercase tracking-wide">
+                            <span class="hidden md:block opacity-70 font-mono text-primary text-sm">04 //</span>
+                            Secure Infrastructure Tooling (Golang)
+                        </h3>
+                        <p class="font-normal text-muted-foreground text-sm sm:text-base line-clamp-2 group-open:line-clamp-none">
+                            Developing secure, self-hosted alternatives for sensitive internal operations using Go.
+                        </p>
+                    </div>
+                </div>
+                <span class="ml-auto transform transition-transform duration-300 group-open:rotate-180 text-muted-foreground">
+                    <svg width="24" height="24" viewBox="0 0 24 24" class="w-6 h-6"><path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z"/></svg>
+                </span>
+            </summary>
+            <div class="px-4 sm:px-6 pb-6 pt-2">
+                <hr class="mb-4 border-border/50">
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">Golang</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">Secure Coding</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">Cryptography</span>
+                    <span class="badge border border-border px-2 py-1 rounded text-xs bg-muted/50">Clean Architecture</span>
+                </div>
+                <div class="space-y-4 text-muted-foreground text-sm leading-relaxed">
+                    <p><strong class="text-foreground/90">The Why:</strong> Using public tools (like Pastebin) for internal security operations is an OPSEC failure. We needed a fast, internal, air-gapped solution for sharing sensitive payloads and configs.</p>
+                    <p><strong class="text-foreground/90">The How:</strong> I wrote 'Pasty', a high-performance storage engine in Go. To minimize maintenance, I architected it to be database-less; it uses S3 object metadata for state management. This allows us to spin up instances instantly via Docker without managing complex SQL migrations.</p>
+                    <p><strong class="text-foreground/90">The Challenge:</strong> Simplicity shouldn't compromise functionality. I implemented a full GUI and API interface that supports advanced security features like 'Burn-After-Read', password protection, and auto-expiration purely via metadata logic.</p>
+                </div>
+            </div>
+        </details>
+    </div>
+</section>
+
+<script>
+    const items = Array.from(document.querySelectorAll("details.accordion-item")) as HTMLDetailsElement[];
+    
+    items.forEach(item => {
+        item.addEventListener("toggle", () => {
+            if (item.open) {
+                items.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.open) {
+                        otherItem.open = false;
+                    }
+                });
+            }
+        });
+    });
+</script>

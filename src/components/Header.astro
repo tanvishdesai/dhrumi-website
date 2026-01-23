@@ -1,0 +1,100 @@
+---
+---
+
+<header id="navigation-header" class="fixed top-0 left-0 right-0 z-50 w-full max-w-7xl mx-auto px-4 transition-transform duration-300 pointer-events-none select-none translate-y-0">
+    <nav class="flex justify-between items-center bg-white dark:bg-black/10 shadow-md dark:shadow-none dark:backdrop-blur-sm mt-4 px-4 py-4 border-2 border-black/10 dark:border-white/10 rounded-2xl pointer-events-auto">
+        <a href="/" aria-label="RVFET.COM" class="flex items-center gap-3 font-heading font-bold text-xl">
+            <svg width="40" height="40" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-foreground" onmouseover="triggerLogoAnimation(this)">
+                <path d="M2 73V2H73V26.924H49.7088H44.8803L48.2946 30.3382L73 55.0436V73H55.0436L30.3382 48.2946L26.924 44.8803V49.7088V73H2" stroke="currentColor" stroke-width="4" stroke-dasharray="365" stroke-dashoffset="0">
+                    <animate attributeName="stroke-dashoffset" values="0;365;0" dur="3s" repeatCount="1" fill="freeze" calcMode="linear" begin="indefinite"></animate>
+                </path>
+            </svg>
+            <span class="hidden sm:block mt-1">RVFET.COM</span>
+        </a>
+
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-4">
+                <a href="/" class="flex font-bold items-center gap-2 decoration-0 py-1 px-2 rounded-md font-heading text-sm sm:text-base sm:py-2 sm:px-4 outline bg-black/10 dark:bg-white/10 outline-black/15 dark:outline-white/15 sm:bg-black/5 sm:dark:bg-white/5">
+                    <span class="hidden xs:block">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M18.67 19c-1.95 0-2.09 1-3.33 1c-1.19 0-1.42-1-3.34-1c-1.94 0-2.09 1-3.33 1s-1.38-1-3.33-1s-2.1 1-3.34 1v2c1.95 0 2.11-1 3.34-1c1.24 0 1.38 1 3.33 1s2.1-1 3.33-1s1.41 1 3.34 1s2.1-1 3.33-1c1.22 0 1.4 1 3.33 1v-2c-1.24 0-1.38-1-3.33-1m-9.99-1.5c1.95 0 2.09-1 3.32-1c1.2 0 1.43 1 3.34 1c1.95 0 2.09-1 3.33-1c1.19 0 1.4 1 3.33 1v-2c-.65 0-1-.28-1.5-.55l-2-7.53l2.07.85l.74-1.86L9.78 2L2 11.61l1.57 1.23l1.39-1.78l.93 3.48c-.18-.04-.35-.04-.56-.04c-1.95 0-2.09 1-3.33 1v2c1.9 0 2.17-1 3.35-1c1.19 0 1.42 1 3.33 1m5.36-7.32l1.42 5.32c-1.34.08-1.46-1-3.46-1c-.37 0-.66.04-.92.1l-.91-3.39z"/></svg>
+                    </span>
+                    Home
+                </a>
+                <a href="/blog" class="flex font-bold items-center gap-2 decoration-0 py-1 px-2 rounded-md font-heading text-sm sm:text-base sm:py-2 sm:px-4 hover:bg-black/5 hover:dark:bg-white/5 transition-colors">
+                    <span class="hidden xs:block">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M4 7v12h15v2H4c-2 0-2-2-2-2V7zm17.3-4H7.7C6.76 3 6 3.7 6 4.55v10.9c0 .86.76 1.55 1.7 1.55h13.6c.94 0 1.7-.69 1.7-1.55V4.55C23 3.7 22.24 3 21.3 3M8 5h5v6H8zm13 10H8v-2h13zm0-4h-6V9h6zm0-4h-6V5h6z"/></svg>
+                    </span>
+                    Blog
+                </a>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <!-- Settings Button (Placeholder for functionality) -->
+                <button type="button" aria-label="Settings" class="btn-icon-outline size-8 p-1 rounded-md border border-border hover:bg-accent hover:text-accent-foreground transition-colors">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 8a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2m-2 12c-.25 0-.46-.18-.5-.42l-.37-2.65c-.63-.25-1.17-.59-1.69-.99l-2.49 1.01c-.22.08-.49 0-.61-.22l-2-3.46a.493.493 0 0 1 .12-.64l2.11-1.66L4.5 12l.07-1l-2.11-1.63a.493.493 0 0 1-.12-.64l2-3.46c.12-.22.39-.31.61-.22l2.49 1c.52-.39 1.06-.73 1.69-.98l.37-2.65c.04-.24.25-.42.5-.42h4c.25 0 .46.18.5.42l.37 2.65c.63.25 1.17.59 1.69.98l2.49-1c.22-.09.49 0 .61.22l2 3.46c.13.22.07.49-.12.64L19.43 11l.07 1l-.07 1l2.11 1.63c.19.15.25.42.12.64l-2 3.46c-.12.22-.39.31-.61.22l-2.49-1c-.52.39-1.06.73-1.69.98l-.37 2.65c-.04.24-.25.42-.5.42zm1.25-18l-.37 2.61c-1.2.25-2.26.89-3.03 1.78L5.44 7.35l-.75 1.3L6.8 10.2a5.55 5.55 0 0 0 0 3.6l-2.12 1.56l.75 1.3l2.43-1.04c.77.88 1.82 1.52 3.01 1.76l.37 2.62h1.52l.37-2.61c1.19-.25 2.24-.89 3.01-1.77l2.43 1.04l.75-1.3l-2.12-1.55c.4-1.17.4-2.44 0-3.61l2.11-1.55l-.75-1.3l-2.41 1.04a5.42 5.42 0 0 0-3.03-1.77L12.75 4z"/></svg>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button type="button" aria-label="Toggle dark mode" onclick="toggleTheme()" class="btn-icon-outline size-8 p-1 rounded-md border border-border hover:bg-accent hover:text-accent-foreground transition-colors">
+                    <span class="hidden dark:block">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11h3v2h-3zM1 11h3v2H1zM13 1v3h-2V1zM4.92 3.5l2.13 2.14l-1.42 1.41L3.5 4.93zm12.03 2.13l2.12-2.13l1.43 1.43l-2.13 2.12zM12 6a6 6 0 0 1 6 6c0 2.22-1.21 4.16-3 5.2V19a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1.8c-1.79-1.04-3-2.98-3-5.2a6 6 0 0 1 6-6m2 15v1a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1zm-3-3h2v-2.13c1.73-.44 3-2.01 3-3.87a4 4 0 0 0-4-4a4 4 0 0 0-4 4c0 1.86 1.27 3.43 3 3.87z"/></svg>
+                    </span>
+                    <span class="dark:hidden block">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C9.76 2 7.78 3.05 6.5 4.68l1.43 1.43C8.84 4.84 10.32 4 12 4a5 5 0 0 1 5 5c0 1.68-.84 3.16-2.11 4.06l1.42 1.44C17.94 13.21 19 11.24 19 9a7 7 0 0 0-7-7M3.28 4L2 5.27L5.04 8.3C5 8.53 5 8.76 5 9c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h5.73l4 4L20 20.72zm3.95 6.5l5.5 5.5H10v-2.42a5 5 0 0 1-2.77-3.08M9 20v1a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1z"/></svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<script is:inline>
+    // Header Scroll Logic
+    const header = document.getElementById("navigation-header");
+    let lastScroll = 0;
+    const threshold = 100;
+
+    function handleScroll() {
+        if (!header) return;
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll < threshold) {
+            header.style.transform = "translateY(0)";
+            lastScroll = currentScroll;
+            return;
+        }
+
+        if (currentScroll > lastScroll) {
+            // Scrolling down
+            header.style.transform = "translateY(-150%)";
+        } else {
+            // Scrolling up
+            header.style.transform = "translateY(0)";
+        }
+        lastScroll = currentScroll;
+    }
+
+    document.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Logo Animation trigger
+    window.triggerLogoAnimation = function(svg) {
+        if (!svg) return;
+        const animate = svg.querySelector("path animate");
+        if (!animate) return;
+        animate.beginElement();
+    };
+
+    // Theme Toggle
+    window.toggleTheme = function() {
+        const isDark = document.documentElement.classList.contains("dark");
+        if (isDark) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("appSettings", JSON.stringify({ theme: "light" })); // Mocking settings
+        } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("appSettings", JSON.stringify({ theme: "dark" }));
+        }
+        // Emit event for BackgroundGrid
+        document.dispatchEvent(new CustomEvent("basecoat:theme"));
+    };
+</script>

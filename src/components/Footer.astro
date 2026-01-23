@@ -1,0 +1,40 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="w-full max-w-7xl mx-auto px-4 py-8 md:py-12 border-t border-border mt-12 bg-background/50 backdrop-blur-sm">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div class="flex flex-col gap-2">
+            <p class="text-sm text-muted-foreground">
+                © {year} RAFET ABBASLI. All rights reserved.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs text-muted-foreground/60">
+                <span class="flex items-center gap-1">
+                    Built using <a href="https://astro.build" target="_blank" class="text-primary hover:underline">Astro</a>,
+                    <a href="https://tailwindcss.com" target="_blank" class="text-primary hover:underline">Tailwind</a> &
+                    <span class="text-primary">Basecoat</span>
+                </span>
+                <span class="hidden sm:inline">•</span>
+                <span class="flex items-center gap-1">
+                    Hosted by <a href="https://pages.cloudflare.com" target="_blank" class="text-primary hover:underline">Cloudflare</a>
+                </span>
+                <span class="hidden sm:inline">•</span>
+                <span>
+                    Last build: {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                </span>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap gap-x-6 gap-y-2 font-medium text-sm">
+            <a href="/rss.xml" class="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+               RSS
+            </a>
+            <a href="/sitemap-index.xml" class="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                Sitemap
+            </a>
+             <a href="/privacy" class="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                Privacy
+            </a>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,57 @@
+---
+const blogs = [
+    { title: "Building Scalable Systems", desc: "Insights into modern architecture.", image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" },
+    { title: "The Art of UI Design", desc: "Crafting beautiful interfaces.", image: "https://images.unsplash.com/photo-1558655146-d09347e0b7a9?auto=format&fit=crop&w=800&q=80" }, // Good UI image?
+    { title: "Performance Optimization", desc: "Making the web faster.", image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" },
+    { title: "React vs Vue", desc: "A comprehensive comparison.", image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" },
+    { title: "Future of AI", desc: "What's next for technology.", image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" },
+];
+---
+
+<section id="blogs" class="w-full max-w-7xl mx-auto px-4 py-20 md:py-32 flex flex-col gap-12 overflow-hidden">
+    <div class="flex justify-between items-end">
+        <h2 class="font-heading text-4xl md:text-6xl lg:text-8xl tracking-tight leading-none text-foreground">
+            LATEST<br>THOUGHTS
+        </h2>
+        
+        <div class="flex flex-col items-end gap-2">
+            <div id="timer-text" class="font-mono text-xl font-bold">3s</div>
+            <div class="w-24 h-1 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
+                <div id="progress-bar" class="w-full h-full bg-black dark:bg-white origin-left scale-x-0"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="relative w-full h-[500px] flex items-center justify-center">
+        <div id="carousel-root" class="relative w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing touch-none perspective-[1000px]">
+            {blogs.map((blog, index) => (
+                <div class="carousel-item absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[450px] rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-900 shadow-2xl select-none" data-index={index}>
+                    <!-- Overlay -->
+                    <div class="overlay absolute inset-0 bg-black/50 z-10 pointer-events-none transition-opacity duration-300"></div>
+                    
+                    <!-- Content -->
+                    <div class="relative w-full h-full flex flex-col">
+                        <div class="h-2/3 w-full overflow-hidden">
+                            <img src={blog.image} alt={blog.title} class="w-full h-full object-cover pointer-events-none" loading="lazy" />
+                        </div>
+                        <div class="flex-1 p-6 flex flex-col justify-between bg-white dark:bg-zinc-900">
+                            <div>
+                                <h3 class="font-heading text-2xl font-bold mb-2 leading-tight">{blog.title}</h3>
+                                <p class="text-sm text-muted-foreground">{blog.desc}</p>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm font-bold mt-4">
+                                <span>READ ARTICLE</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<script>
+    import "../scripts/BlogCarousel.js";
+</script>

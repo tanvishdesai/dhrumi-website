@@ -1,0 +1,1 @@
+import{l as a}from"./settings.Bs8SxSJd.js";const t=e=>{const d=document.getElementById("breadcrumb-nav");d&&(e.breadcrumb.enabled?d.classList.remove("hidden"):d.classList.add("hidden"))};t(a());document.addEventListener("app:settings-changed",e=>{t(e.detail)});
